@@ -1,0 +1,408 @@
+[
+  {
+    "district": "Bagerhat",
+    "areas": [
+      "Bagerhat"
+    ]
+  },
+  {
+    "district": "Bandarban",
+    "areas": [
+      "Bandarban"
+    ]
+  },
+  {
+    "district": "Barguna",
+    "areas": [
+      "Barguna"
+    ]
+  },
+  {
+    "district": "Barishal",
+    "areas": [
+      "Barishal"
+    ]
+  },
+  {
+    "district": "Bhola",
+    "areas": [
+      "Bhola"
+    ]
+  },
+  {
+    "district": "Bogura",
+    "areas": [
+      "Bogura"
+    ]
+  },
+  {
+    "district": "Brahmanbaria",
+    "areas": [
+      "Brahmanbaria"
+    ]
+  },
+  {
+    "district": "Chandpur",
+    "areas": [
+      "Chandpur"
+    ]
+  },
+  {
+    "district": "Chapai Nawabganj",
+    "areas": [
+      "Chapai Nawabganj"
+    ]
+  },
+  {
+    "district": "Chattogram",
+    "areas": [
+      "Chattogram"
+    ]
+  },
+  {
+    "district": "Chuadanga",
+    "areas": [
+      "Chuadanga"
+    ]
+  },
+  {
+    "district": "Cox's Bazar",
+    "areas": [
+      "Cox's Bazar"
+    ]
+  },
+  {
+    "district": "Cumilla",
+    "areas": [
+      "Cumilla"
+    ]
+  },
+  {
+    "district": "Dhaka",
+    "areas": [
+      "Adabor",
+      "Badda",
+      "Banani",
+      "Bangshal",
+      "Baridhara",
+      "Bashundhara",
+      "Dhanmondi",
+      "Gulshan",
+      "Jatrabari",
+      "Khilgaon",
+      "Khilkhet",
+      "Lalbagh",
+      "Mirpur",
+      "Mohakhali",
+      "Mohammadpur",
+      "Motijheel",
+      "Old Dhaka",
+      "Rampura",
+      "Savar",
+      "Shyamoli",
+      "Tejgaon",
+      "Uttara",
+      "Wari"
+    ]
+  },
+  {
+    "district": "Dinajpur",
+    "areas": [
+      "Dinajpur"
+    ]
+  },
+  {
+    "district": "Faridpur",
+    "areas": [
+      "Faridpur"
+    ]
+  },
+  {
+    "district": "Feni",
+    "areas": [
+      "Feni"
+    ]
+  },
+  {
+    "district": "Gaibandha",
+    "areas": [
+      "Gaibandha"
+    ]
+  },
+  {
+    "district": "Gazipur",
+    "areas": [
+      "Gazipur"
+    ]
+  },
+  {
+    "district": "Gopalganj",
+    "areas": [
+      "Gopalganj"
+    ]
+  },
+  {
+    "district": "Habiganj",
+    "areas": [
+      "Habiganj"
+    ]
+  },
+  {
+    "district": "Jamalpur",
+    "areas": [
+      "Jamalpur"
+    ]
+  },
+  {
+    "district": "Jashore",
+    "areas": [
+      "Jashore"
+    ]
+  },
+  {
+    "district": "Jhalokathi",
+    "areas": [
+      "Jhalokathi"
+    ]
+  },
+  {
+    "district": "Jhenaidah",
+    "areas": [
+      "Jhenaidah"
+    ]
+  },
+  {
+    "district": "Joypurhat",
+    "areas": [
+      "Joypurhat"
+    ]
+  },
+  {
+    "district": "Khagrachhari",
+    "areas": [
+      "Khagrachhari"
+    ]
+  },
+  {
+    "district": "Khulna",
+    "areas": [
+      "Khulna"
+    ]
+  },
+  {
+    "district": "Kishoreganj",
+    "areas": [
+      "Kishoreganj"
+    ]
+  },
+  {
+    "district": "Kurigram",
+    "areas": [
+      "Kurigram"
+    ]
+  },
+  {
+    "district": "Kushtia",
+    "areas": [
+      "Kushtia"
+    ]
+  },
+  {
+    "district": "Lakshmipur",
+    "areas": [
+      "Lakshmipur"
+    ]
+  },
+  {
+    "district": "Lalmonirhat",
+    "areas": [
+      "Lalmonirhat"
+    ]
+  },
+  {
+    "district": "Madaripur",
+    "areas": [
+      "Madaripur"
+    ]
+  },
+  {
+    "district": "Magura",
+    "areas": [
+      "Magura"
+    ]
+  },
+  {
+    "district": "Manikganj",
+    "areas": [
+      "Manikganj"
+    ]
+  },
+  {
+    "district": "Meherpur",
+    "areas": [
+      "Meherpur"
+    ]
+  },
+  {
+    "district": "Moulvibazar",
+    "areas": [
+      "Moulvibazar"
+    ]
+  },
+  {
+    "district": "Munshiganj",
+    "areas": [
+      "Munshiganj"
+    ]
+  },
+  {
+    "district": "Mymensingh",
+    "areas": [
+      "Mymensingh"
+    ]
+  },
+  {
+    "district": "Naogaon",
+    "areas": [
+      "Naogaon"
+    ]
+  },
+  {
+    "district": "Narail",
+    "areas": [
+      "Narail"
+    ]
+  },
+  {
+    "district": "Narayanganj",
+    "areas": [
+      "Narayanganj"
+    ]
+  },
+  {
+    "district": "Narsingdi",
+    "areas": [
+      "Narsingdi"
+    ]
+  },
+  {
+    "district": "Natore",
+    "areas": [
+      "Natore"
+    ]
+  },
+  {
+    "district": "Netrokona",
+    "areas": [
+      "Netrokona"
+    ]
+  },
+  {
+    "district": "Nilphamari",
+    "areas": [
+      "Nilphamari"
+    ]
+  },
+  {
+    "district": "Noakhali",
+    "areas": [
+      "Noakhali"
+    ]
+  },
+  {
+    "district": "Pabna",
+    "areas": [
+      "Pabna"
+    ]
+  },
+  {
+    "district": "Panchagarh",
+    "areas": [
+      "Panchagarh"
+    ]
+  },
+  {
+    "district": "Patuakhali",
+    "areas": [
+      "Patuakhali"
+    ]
+  },
+  {
+    "district": "Pirojpur",
+    "areas": [
+      "Pirojpur"
+    ]
+  },
+  {
+    "district": "Rajbari",
+    "areas": [
+      "Rajbari"
+    ]
+  },
+  {
+    "district": "Rajshahi",
+    "areas": [
+      "Rajshahi"
+    ]
+  },
+  {
+    "district": "Rangamati",
+    "areas": [
+      "Rangamati"
+    ]
+  },
+  {
+    "district": "Rangpur",
+    "areas": [
+      "Rangpur"
+    ]
+  },
+  {
+    "district": "Satkhira",
+    "areas": [
+      "Satkhira"
+    ]
+  },
+  {
+    "district": "Shariatpur",
+    "areas": [
+      "Shariatpur"
+    ]
+  },
+  {
+    "district": "Sherpur",
+    "areas": [
+      "Sherpur"
+    ]
+  },
+  {
+    "district": "Sirajganj",
+    "areas": [
+      "Sirajganj"
+    ]
+  },
+  {
+    "district": "Sunamganj",
+    "areas": [
+      "Sunamganj"
+    ]
+  },
+  {
+    "district": "Sylhet",
+    "areas": [
+      "Sylhet"
+    ]
+  },
+  {
+    "district": "Tangail",
+    "areas": [
+      "Tangail"
+    ]
+  },
+  {
+    "district": "Thakurgaon",
+    "areas": [
+      "Thakurgaon"
+    ]
+  }
+]

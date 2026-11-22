@@ -1,0 +1,85 @@
+/* Neuvix Checkout — order confirmation page */
+.nvx-thankyou {
+	--ty-text: #111827; --ty-muted: #6b7280; --ty-line: #e5e7eb; --ty-green-bg: #d1fae5; --ty-green: #065f46;
+	--ty-primary: #b02a3a; --ty-primary-dark: #97202f;
+	max-width: 780px; margin: 0 auto; padding: 8px 0 48px; color: var(--ty-text); font-size: 15px;
+}
+.nvx-thankyou__hero { text-align: center; margin-bottom: 28px; }
+.nvx-thankyou__icon {
+	display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%;
+	background: var(--ty-green-bg); color: var(--ty-green); margin-bottom: 16px;
+}
+.nvx-thankyou__icon.is-failed { background: #fee2e2; color: #991b1b; }
+.nvx-thankyou__icon svg { width: 26px; height: 26px; }
+.nvx-thankyou__hero h1 { font-size: 28px; font-weight: 500; margin: 0 0 6px; line-height: 1.25; }
+.nvx-thankyou__sub { color: var(--ty-muted); margin: 0 0 20px; font-size: 15px; }
+.nvx-thankyou__number {
+	display: inline-flex; align-items: center; gap: 22px; padding: 10px 14px 10px 16px; margin: 0 auto 16px;
+	background: #fff; border: 1px solid var(--ty-line); border-radius: 8px; text-align: left;
+}
+.nvx-thankyou__number small { display: block; font-size: 11px; color: var(--ty-muted); margin-bottom: 2px; }
+.nvx-thankyou__number strong { font-size: 15px; font-weight: 600; }
+.nvx-copy {
+	width: 32px; height: 32px; padding: 0; border: 1px solid var(--ty-line); border-radius: 6px; background: #fff; color: var(--ty-muted);
+	display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: color .15s, border-color .15s;
+}
+.nvx-copy svg { width: 16px; height: 16px; }
+.nvx-copy:hover { color: var(--ty-text); border-color: #cbd5e1; }
+.nvx-copy.is-done { color: var(--ty-green); border-color: var(--ty-green); }
+.nvx-thankyou__email { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; font-size: 14px; color: #374151; }
+.nvx-thankyou__email svg { width: 18px; height: 18px; color: var(--ty-muted); }
+
+.nvx-card { display: block; background: #fff; border: 1px solid var(--ty-line); border-radius: 10px; margin: 0 0 22px; overflow: hidden; }
+.nvx-card__head {
+	display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--ty-line);
+	font-size: 16px; font-weight: 500; list-style: none; cursor: pointer;
+}
+.nvx-card__head::-webkit-details-marker { display: none; }
+.nvx-card__chevron { width: 8px; height: 8px; border-right: 1.5px solid var(--ty-muted); border-bottom: 1.5px solid var(--ty-muted); transform: rotate(45deg); transition: transform .2s; margin-right: 4px; }
+details[open] > .nvx-card__head .nvx-card__chevron { transform: rotate(-135deg); }
+details:not([open]) > .nvx-card__head { border-bottom: 0; }
+.nvx-card__body { padding: 8px 20px 18px; }
+
+.nvx-ty-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ty-line); }
+.nvx-ty-item__thumb img { width: 56px; height: 56px; object-fit: contain; display: block; border-radius: 6px; background: #f9fafb; }
+.nvx-ty-item__name { display: block; font-weight: 500; line-height: 1.35; }
+.nvx-ty-item__meta { display: block; color: var(--ty-muted); font-size: 12.5px; margin-top: 3px; }
+.nvx-ty-item__price { font-weight: 500; white-space: nowrap; }
+.nvx-ty-item__price .woocommerce-Price-amount { color: inherit; }
+.nvx-ty-totals { padding-top: 12px; }
+.nvx-ty-row { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; font-size: 14.5px; }
+.nvx-ty-row > span:first-child { color: #374151; }
+.nvx-ty-row em { font-style: normal; color: var(--ty-muted); font-size: 13px; }
+.nvx-ty-row .is-free { color: #059669; }
+.nvx-ty-row .is-discount { color: #dc2626; }
+.nvx-ty-row--total { border-top: 1px solid var(--ty-line); margin-top: 8px; padding-top: 12px; font-size: 17px; font-weight: 500; }
+.nvx-ty-row--total > span:first-child { color: var(--ty-text); }
+.nvx-ty-row--total .woocommerce-Price-amount { color: inherit; }
+
+.nvx-ty-details { padding-top: 14px; display: grid; gap: 18px; }
+.nvx-ty-detail { display: flex; gap: 12px; align-items: flex-start; }
+.nvx-ty-detail > svg { width: 18px; height: 18px; color: var(--ty-muted); flex: none; margin-top: 2px; }
+.nvx-ty-detail strong { display: block; font-weight: 500; margin-bottom: 4px; }
+.nvx-ty-detail span, .nvx-ty-detail address { display: block; color: #374151; font-style: normal; line-height: 1.6; font-size: 14px; margin: 0; }
+
+.nvx-thankyou__actions { display: flex; justify-content: center; gap: 12px; margin: 28px 0 0; }
+.nvx-btn {
+	display: inline-flex; align-items: center; justify-content: center; min-width: 240px; height: 52px; padding: 0 28px;
+	background: var(--ty-primary); color: #fff !important; border-radius: 6px; font-size: 15px; font-weight: 500; letter-spacing: .4px; text-transform: uppercase; text-decoration: none !important; transition: background-color .15s;
+}
+.nvx-btn:hover { background: var(--ty-primary-dark); }
+.nvx-btn--ghost { background: #fff; color: var(--ty-text) !important; border: 1px solid var(--ty-line); }
+.nvx-btn--ghost:hover { background: #f9fafb; }
+.nvx-thankyou__hooks:empty { display: none; }
+.nvx-thankyou__hooks { margin-top: 24px; }
+.nvx-thankyou__hooks .woocommerce-order-details,
+.nvx-thankyou__hooks .woocommerce-customer-details,
+.nvx-thankyou__hooks .woocommerce-order-overview { display: none; }
+/* Hide WoodMart/WC page title on the confirmation page */
+body.woocommerce-order-received .page-title,
+body.woocommerce-order-received .title-wrapper { display: none !important; }
+@media (max-width: 600px) {
+	.nvx-thankyou__hero h1 { font-size: 24px; }
+	.nvx-card__body { padding: 6px 14px 14px; }
+	.nvx-btn { width: 100%; }
+}
