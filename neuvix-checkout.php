@@ -3,7 +3,7 @@
  * Plugin Name:       Neuvix Checkout
  * Plugin URI:        https://neuvixstudio.com
  * Description:       Custom WooCommerce checkout — Bangladesh delivery address (District → Area from JSON), automatic inside/outside Dhaka delivery charge, packaging options with fees, and a redesigned order summary. Built for WoodMart + Elementor.
- * Version:           1.3.1
+ * Version:           1.5.0
  * Author:            Neuvix Studio
  * Text Domain:       neuvix-checkout
  * Requires at least: 6.0
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NVX_CO_VERSION', '1.3.1' );
+define( 'NVX_CO_VERSION', '1.5.0' );
 define( 'NVX_CO_FILE', __FILE__ );
 define( 'NVX_CO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NVX_CO_URL', plugin_dir_url( __FILE__ ) );
@@ -44,6 +44,9 @@ add_action( 'plugins_loaded', function () {
 	require_once NVX_CO_PATH . 'includes/class-nvx-layout.php';
 	require_once NVX_CO_PATH . 'includes/class-nvx-terms.php';
 	require_once NVX_CO_PATH . 'includes/class-nvx-performance.php';
+	require_once NVX_CO_PATH . 'includes/class-nvx-payment-result.php';
+	require_once NVX_CO_PATH . 'includes/class-nvx-invoice.php';
+	require_once NVX_CO_PATH . 'includes/class-nvx-emails.php';
 
 	NVX_Settings::init();
 	NVX_Shipping::init();
@@ -54,6 +57,9 @@ add_action( 'plugins_loaded', function () {
 	NVX_Layout::init();
 	NVX_Terms::init();
 	NVX_Performance::init();
+	NVX_Payment_Result::init();
+	NVX_Invoice::init();
+	NVX_Emails::init();
 } );
 
 // Settings link on the Plugins screen.

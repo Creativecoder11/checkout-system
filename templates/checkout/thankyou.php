@@ -15,6 +15,13 @@ if ( ! $order ) :
 	return;
 endif;
 
+// Online payments: "Payment Successful" / "Payment Cancelled" screens.
+$nvx_view = class_exists( 'NVX_Payment_Result' ) ? NVX_Payment_Result::view( $order ) : 'default';
+if ( in_array( $nvx_view, [ 'success', 'cancelled' ], true ) ) {
+	include NVX_CO_PATH . 'templates/checkout/payment-' . $nvx_view . '.php';
+	return;
+}
+
 $continue_url   = NVX_Settings::get( 'continue_url' ) ?: wc_get_page_permalink( 'shop' );
 $continue_label = NVX_Settings::get( 'continue_label' ) ?: 'Continue Shopping';
 $email          = $order->get_billing_email();
@@ -145,6 +152,7 @@ $area           = $order->get_meta( '_nvx_area' );
 
 		<p class="nvx-thankyou__actions">
 			<a href="<?php echo esc_url( $continue_url ); ?>" class="nvx-btn"><?php echo esc_html( $continue_label ); ?></a>
+			<?php if ( class_exists( 'NVX_Invoice' ) ) { NVX_Invoice::button( $order, 'nvx-btn nvx-btn--ghost is-invoice' ); } ?>
 		</p>
 
 	<?php endif; ?>
