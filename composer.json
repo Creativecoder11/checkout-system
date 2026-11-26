@@ -1,0 +1,20 @@
+{
+    "name": "neuvix/neuvix-checkout",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Nur Mohammad Kawser",
+            "email": "93733097+Creativecoder11@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.0"
+        },
+        "optimize-autoloader": true,
+        "prepend-autoloader": false
+    }
+}

@@ -94,15 +94,7 @@ class NVX_Emails {
 	}
 
 	public static function send( $order ) {
-		if ( 'yes' === NVX_Settings::get( 'email_admin_on' ) && ( $to = self::admin_recipients() ) ) {
-			wp_mail(
-				$to,
-				self::replace( NVX_Settings::get( 'email_admin_subject' ), $order ),
-				self::render( $order, true ),
-				self::headers( $order->get_billing_email() )
-			);
-		}
-
+		// Customer first: building the admin PDF is the heavier step, and must never cost the customer their email.
 		$customer = $order->get_billing_email();
 		if ( 'yes' === NVX_Settings::get( 'email_customer_on' ) && $customer && is_email( $customer ) ) {
 			wp_mail(
@@ -112,6 +104,55 @@ class NVX_Emails {
 				self::headers()
 			);
 		}
+
+		if ( 'yes' === NVX_Settings::get( 'email_admin_on' ) && ( $to = self::admin_recipients() ) ) {
+			$pdf  = self::admin_pdf( $order );
+			$sent = false;
+			try {
+				$sent = wp_mail(
+					$to,
+					self::replace( NVX_Settings::get( 'email_admin_subject' ), $order ),
+					self::render( $order, true ),
+					self::headers( $order->get_billing_email() ),
+					$pdf ? [ $pdf ] : []
+				);
+			} finally {
+				NVX_Invoice::delete_pdf_file( $pdf ); // the PDF holds customer details — never leave it in the temp folder
+			}
+			if ( $pdf ) {
+				$order->add_order_note( $sent
+					? 'Neuvix: admin email sent with the invoice PDF attached (' . basename( $pdf ) . ').'
+					: 'Neuvix: the admin email with the invoice PDF could not be sent — WordPress mail (wp_mail) failed. Check your SMTP / mail settings.' );
+			}
+		}
+	}
+
+	/**
+	 * Invoice PDF for the admin email, or '' (the email still goes out without it).
+	 * Every reason for sending without it is written to the order notes.
+	 */
+	protected static function admin_pdf( $order ) {
+		if ( 'yes' !== NVX_Settings::get( 'email_admin_pdf' ) ) {
+			return ''; // switched off on purpose — no note
+		}
+		$skip = '';
+		if ( ! NVX_Invoice::enabled() ) {
+			$skip = 'the Invoice option is turned off (WooCommerce → Settings → Neuvix Checkout → Invoice → Enable).';
+		} elseif ( ! NVX_Invoice::available( $order ) ) {
+			$skip = sprintf( 'invoices are not issued for orders with status "%s".', wc_get_order_status_name( $order->get_status() ) );
+		} elseif ( ! NVX_Invoice::pdf_library_present() ) {
+			$skip = 'the PDF library is missing — upload the plugin\'s "vendor" folder to wp-content/plugins/' . basename( untrailingslashit( NVX_CO_PATH ) ) . '/.';
+		}
+		if ( $skip ) {
+			$order->add_order_note( 'Neuvix: invoice PDF not attached to the admin email — ' . $skip );
+			return '';
+		}
+		$file = NVX_Invoice::pdf_file( $order );
+		if ( is_wp_error( $file ) ) {
+			$order->add_order_note( 'Neuvix: invoice PDF could not be attached to the admin email — ' . $file->get_error_message() );
+			return '';
+		}
+		return $file;
 	}
 
 	/** Used by the template. */

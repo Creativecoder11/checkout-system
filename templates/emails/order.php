@@ -17,7 +17,7 @@ $panel    = '#f5f6f8';
 $font     = "-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 $store    = get_bloginfo( 'name' );
 $currency = [ 'currency' => $order->get_currency() ];
-$logo     = class_exists( 'NVX_Invoice' ) ? NVX_Invoice::logo_url() : '';
+$logo     = class_exists( 'NVX_Invoice' ) ? NVX_Invoice::email_logo_url() : '';
 $invoice  = class_exists( 'NVX_Invoice' ) && NVX_Invoice::available( $order ) ? NVX_Invoice::url( $order, true ) : '';
 $created  = $order->get_date_created();
 $district = (string) $order->get_meta( '_nvx_district' );
