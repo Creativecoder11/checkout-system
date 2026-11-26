@@ -47,6 +47,8 @@ $count = $cart->get_cart_contents_count();
 		?>
 	</div>
 
+	<?php if ( class_exists( 'NVX_Summary' ) ) { NVX_Summary::render_coupon(); } ?>
+
 	<div class="nvx-summary__totals">
 		<div class="nvx-row">
 			<span>Subtotal (<?php echo esc_html( str_pad( $count, 2, '0', STR_PAD_LEFT ) ); ?> Products)</span>

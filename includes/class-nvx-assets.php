@@ -30,7 +30,12 @@ class NVX_Assets {
 			'country'         => NVX_Fields::default_country(),
 			'i18n'            => [
 				'phone' => NVX_Fields::phone_error(),
-				'email' => 'Please enter a valid email address (e.g. name@example.com).',
+				'email'         => 'Please enter a valid email address (e.g. name@example.com).',
+				'couponEmpty'   => 'Please enter a coupon code.',
+				'couponApplied' => 'Coupon code applied successfully.',
+				'couponRemoved' => 'Coupon has been removed.',
+				'couponFailed'  => 'Could not apply the coupon. Please try again.',
+				'couponRemoveFailed' => 'Could not remove the coupon. Please try again.',
 			],
 		] );
 	}

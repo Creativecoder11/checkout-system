@@ -91,6 +91,9 @@ class NVX_Settings {
 			'load_css'         => 'yes',
 			'button_text'      => 'PLACE ORDER',
 			'payment_title'    => 'Select Payment Method',
+			// Coupon field in the Order Summary.
+			'coupon_enable'    => 'yes',
+			'coupon_label'     => 'Have a coupon code?',
 			// Packaging.
 			'pack_poly_on'     => 'yes',
 			'pack_poly_label'  => 'Standard Poly',
@@ -131,6 +134,8 @@ class NVX_Settings {
 			[ 'title' => 'Phone prefix', 'id' => 'phone_prefix', 'type' => 'text' ],
 			[ 'title' => 'Payment section title', 'id' => 'payment_title', 'type' => 'text' ],
 			[ 'title' => 'Place order button', 'id' => 'button_text', 'type' => 'text' ],
+			[ 'title' => 'Coupon field', 'id' => 'coupon_enable', 'type' => 'checkbox', 'desc' => 'Show a coupon code field in the Order Summary (replaces WooCommerce\'s "Have a coupon? Click here" bar). Coupons must also be enabled in WooCommerce → Settings → General.' ],
+			[ 'title' => 'Coupon field label', 'id' => 'coupon_label', 'type' => 'text' ],
 			[ 'title' => 'Full-width wrapper', 'id' => 'layout_wrap', 'type' => 'checkbox', 'desc' => 'Wrap the checkout in the plugin\'s full-width container (turn off when using a WoodMart/Elementor checkout layout)' ],
 			[ 'title' => 'Show step bar', 'id' => 'show_steps', 'type' => 'checkbox', 'desc' => 'Cart › Delivery › Payment above the form' ],
 			[ 'title' => 'Load plugin CSS', 'id' => 'load_css', 'type' => 'checkbox', 'desc' => 'Untick if you style everything in your theme' ],

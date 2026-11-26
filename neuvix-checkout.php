@@ -3,7 +3,7 @@
  * Plugin Name:       Neuvix Checkout
  * Plugin URI:        https://neuvixstudio.com
  * Description:       Custom WooCommerce checkout — Bangladesh delivery address (District → Area from JSON), automatic inside/outside Dhaka delivery charge, packaging options with fees, and a redesigned order summary. Built for WoodMart + Elementor.
- * Version:           1.5.0
+ * Version:           1.6.0
  * Author:            Neuvix Studio
  * Text Domain:       neuvix-checkout
  * Requires at least: 6.0
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NVX_CO_VERSION', '1.5.0' );
+define( 'NVX_CO_VERSION', '1.6.0' );
 define( 'NVX_CO_FILE', __FILE__ );
 define( 'NVX_CO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NVX_CO_URL', plugin_dir_url( __FILE__ ) );

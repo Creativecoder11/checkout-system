@@ -13,6 +13,8 @@ class NVX_Summary {
 		add_filter( 'woocommerce_gateway_icon', [ __CLASS__, 'gateway_icon' ], 20, 2 );
 		add_filter( 'gettext', [ __CLASS__, 'rename_steps' ], 10, 3 );
 		add_action( 'init', [ __CLASS__, 'thankyou_hooks' ], 20 );
+		add_action( 'init', [ __CLASS__, 'coupon_hooks' ], 20 );
+		add_filter( 'body_class', [ __CLASS__, 'coupon_body_class' ] );
 	}
 
 	/** Our thank-you template renders the order itself, so drop WooCommerce's default tables. */
@@ -20,6 +22,71 @@ class NVX_Summary {
 		if ( 'yes' === NVX_Settings::get( 'thankyou_enable' ) ) {
 			remove_action( 'woocommerce_thankyou', 'woocommerce_order_details_table', 10 );
 		}
+	}
+
+	/* ---------- Coupon field in the Order Summary ---------- */
+
+	public static function coupon_enabled() {
+		return 'yes' === NVX_Settings::get( 'coupon_enable' ) && function_exists( 'wc_coupons_enabled' ) && wc_coupons_enabled();
+	}
+
+	/**
+	 * True only when the plugin's own review-order.php renders the summary (so our field is shown).
+	 * A theme copy made before v1.6 has no coupon field — keep WooCommerce's bar for it.
+	 */
+	protected static function replaces_default_coupon() {
+		if ( ! self::coupon_enabled() ) {
+			return false;
+		}
+		$path = function_exists( 'WC' ) ? WC()->template_path() : 'woocommerce/';
+		return ! locate_template( [ trailingslashit( $path ) . 'checkout/review-order.php', 'checkout/review-order.php' ] );
+	}
+
+	/** One place to enter a code: drop WooCommerce's "Have a coupon? Click here" bar above the form. */
+	public static function coupon_hooks() {
+		if ( self::replaces_default_coupon() ) {
+			remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+		}
+	}
+
+	/** Lets the CSS also hide a coupon bar a theme (e.g. WoodMart) re-adds on its own hook. */
+	public static function coupon_body_class( $classes ) {
+		if ( self::replaces_default_coupon() ) {
+			$classes[] = 'nvx-has-coupon';
+		}
+		return $classes;
+	}
+
+	/**
+	 * Code field + APPLY button + applied codes. Rendered inside review-order.php so the
+	 * checkout AJAX refresh redraws it. No <form> (it sits inside form.checkout) and no input
+	 * name, so it is never posted with the order — checkout.js applies codes via wc-ajax.
+	 */
+	public static function render_coupon() {
+		if ( ! self::coupon_enabled() || ! WC()->cart ) {
+			return;
+		}
+		$applied = WC()->cart->get_applied_coupons();
+		?>
+		<div class="nvx-coupon">
+			<label class="nvx-coupon__label" for="nvx_coupon_code"><?php echo esc_html( NVX_Settings::get( 'coupon_label' ) ?: 'Have a coupon code?' ); ?></label>
+			<div class="nvx-coupon__field">
+				<input type="text" id="nvx_coupon_code" class="nvx-coupon__input" placeholder="Enter coupon code" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="nvx_coupon_msg">
+				<button type="button" class="nvx-coupon__btn">Apply</button>
+			</div>
+			<p id="nvx_coupon_msg" class="nvx-coupon__msg"></p>
+			<?php if ( $applied ) : ?>
+				<ul class="nvx-coupon__applied" aria-label="Applied coupons">
+					<?php foreach ( $applied as $code ) : ?>
+						<li class="nvx-coupon__chip">
+							<span><?php echo esc_html( wc_format_coupon_code( $code ) ); ?></span>
+							<button type="button" class="nvx-coupon__remove" data-coupon="<?php echo esc_attr( $code ); ?>" aria-label="<?php echo esc_attr( sprintf( 'Remove coupon %s', wc_format_coupon_code( $code ) ) ); ?>">&times;</button>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</div>
+		<?php
 	}
 
 	/**

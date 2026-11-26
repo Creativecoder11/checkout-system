@@ -383,3 +383,61 @@ body.nvx-checkout-page .nvx-summary .nvx-delivery { margin: 0px 0 0; padding-top
 body.nvx-checkout-page .nvx-row--total { border-bottom: 0; }
 body.nvx-checkout-page .nvx-terms label { line-height: 1.5; }
 body.nvx-checkout-page .nvx-terms .woocommerce-terms-and-conditions-checkbox-text a { color: #555; text-decoration: underline; }
+
+/* ---------- v1.6: coupon field in the Order Summary ---------- */
+/* One place to enter a code — hide WooCommerce's / the theme's "Have a coupon?" bar. */
+body.nvx-checkout-page.nvx-has-coupon .woocommerce-form-coupon-toggle,
+body.nvx-checkout-page.nvx-has-coupon form.checkout_coupon { display: none !important; }
+
+body.nvx-checkout-page .nvx-coupon { padding: 14px 0; border-bottom: 1px solid var(--nvx-line); }
+body.nvx-checkout-page .nvx-coupon__label {
+	display: block !important; font-size: 15px; font-weight: 500; color: var(--nvx-text);
+	margin: 0 0 8px; text-transform: none; letter-spacing: 0;
+}
+body.nvx-checkout-page .nvx-coupon__field { display: flex; gap: 12px; }
+body.nvx-checkout-page .nvx-coupon__input {
+	flex: 1 1 auto; min-width: 0;
+	height: 62px !important; line-height: 60px;
+	border: 1px solid var(--nvx-line) !important;
+	background-color: var(--nvx-field) !important;
+	border-radius: var(--nvx-radius) !important;
+	padding: 0 16px !important;
+	font-size: 16px !important; color: var(--nvx-text) !important;
+	box-shadow: none !important; margin: 0 !important;
+}
+body.nvx-checkout-page .nvx-coupon__input::placeholder { color: var(--nvx-placeholder); opacity: 1; }
+body.nvx-checkout-page .nvx-coupon__input:focus { border-color: var(--nvx-primary) !important; background-color: #fff !important; outline: none; }
+body.nvx-checkout-page .nvx-coupon.is-invalid .nvx-coupon__input,
+body.nvx-checkout-page .nvx-coupon.is-invalid .nvx-coupon__input:focus { border-color: #d63638 !important; background-color: #fff !important; }
+body.nvx-checkout-page .nvx-coupon__btn {
+	flex: none; height: 62px !important; line-height: 62px; padding: 0 28px !important; margin: 0;
+	background: var(--nvx-primary) !important; color: #fff !important;
+	font-size: 17px !important; font-weight: 500 !important; letter-spacing: 1px; text-transform: uppercase;
+	border: 0 !important; border-radius: var(--nvx-radius) !important; box-shadow: none !important;
+	cursor: pointer; transition: background-color .15s;
+}
+body.nvx-checkout-page .nvx-coupon__btn:hover { background: var(--nvx-primary-dark) !important; }
+body.nvx-checkout-page .nvx-coupon__btn:focus-visible { outline: 2px solid var(--nvx-text); outline-offset: 2px; }
+body.nvx-checkout-page .nvx-coupon__btn:disabled { opacity: .6; cursor: progress; }
+body.nvx-checkout-page .nvx-coupon__msg { margin: 6px 0 0; font-size: 13px; line-height: 1.4; }
+body.nvx-checkout-page .nvx-coupon__msg:empty { display: none; }
+body.nvx-checkout-page .nvx-coupon__msg.is-error { color: #d63638; }
+/* No success colour in the theme; neutral text keeps a confirmation from reading as an error (both reds are close). */
+body.nvx-checkout-page .nvx-coupon__msg.is-success { color: var(--nvx-muted); }
+body.nvx-checkout-page .nvx-coupon__applied { display: flex; flex-wrap: wrap; gap: 8px; list-style: none !important; margin: 12px 0 0 !important; padding: 0 !important; }
+body.nvx-checkout-page .nvx-coupon__chip {
+	display: inline-flex; align-items: center; gap: 4px; margin: 0; padding: 2px 4px 2px 12px; list-style: none;
+	background: var(--nvx-primary-soft); border: 1px solid var(--nvx-primary-border); border-radius: var(--nvx-radius);
+	color: var(--nvx-primary); font-size: 14px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase;
+}
+body.nvx-checkout-page .nvx-coupon__remove {
+	width: 28px; height: 28px; min-height: 0; padding: 0; margin: 0;
+	display: inline-flex; align-items: center; justify-content: center;
+	background: transparent !important; border: 0 !important; border-radius: 50%; box-shadow: none !important;
+	color: inherit !important; font-size: 18px; line-height: 1; cursor: pointer;
+}
+body.nvx-checkout-page .nvx-coupon__remove:hover { background: #fff !important; }
+body.nvx-checkout-page .nvx-coupon__remove:focus-visible { outline: 2px solid var(--nvx-primary); outline-offset: 1px; }
+@media (max-width: 400px) {
+	body.nvx-checkout-page .nvx-coupon__btn { padding: 0 18px !important; }
+}
